@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MasterPol.MainWindow"
+		x:CompileBindings="False"
+        Title="MasterPol">
+	<Grid RowDefinitions="Auto,*,Auto"
+		  ShowGridLines="True">
+
+		<DockPanel Grid.Row="0"
+				   Margin="40 10 0 10">
+			<Image Source="C:\Users\PROFI\source\repos\MasterPol\MasterPol\Assets\Мастер пол.png"
+			   Height="40"
+			   Width="40"
+			   HorizontalAlignment="Left"/>
+			<TextBlock Text="Главная"
+					   FontSize="20"
+					   FontWeight="Bold"
+					   Margin="20 8 0 0"/>
+		</DockPanel>
+		
+		<ListBox x:Name="PartnersLB"
+				 Grid.Row="1"
+				 Margin="20"
+				 Background="White"
+				 BorderBrush="Black"
+				 BorderThickness="1">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="Black"
+							BorderThickness="1 1 1 1"
+							Height="120"
+							Margin="10">
+						<Grid ColumnDefinitions="*,*"
+							  RowDefinitions="Auto,*,*,*"  
+							  ShowGridLines="True">
+							<TextBlock Grid.Column="0"
+									   Grid.Row="0"
+									   Text="{Binding Type.TypeName}"
+									   FontSize="20"
+									   Margin="10 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="0"
+									   Text="|"
+									   FontSize="20"
+									   Margin="60 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="0"
+									   Text="{Binding Name}"
+									   FontSize="20"
+									   Margin="70 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="1"
+									   Text="{Binding Director}"
+									   FontSize="12"
+									   Margin="10 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="2"
+									   Text="+7"
+									   FontSize="12"
+									   Margin="10 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="2"
+									   Text="{Binding Phone}"
+									   FontSize="12"
+									   Margin="30 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="3"
+									   Text="Рейтинг:"
+									   FontSize="12"
+									   Margin="10 10 0 0"/>
+							<TextBlock Grid.Column="0"
+									   Grid.Row="3"
+									   Text="{Binding Rating}"
+									   FontSize="12"
+									   Margin="65 10 0 0"/>
+							<TextBlock Grid.Column="1"
+									   Grid.Row="0"
+									   Text="{Binding }"
+									   FontSize="20"
+									   HorizontalAlignment="Center"
+									   Margin="0 0 0 0"/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</Window>
