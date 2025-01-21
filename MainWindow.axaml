@@ -1,0 +1,86 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		WindowStartupLocation="CenterScreen"
+		x:CompileBindings="False"
+        x:Class="Avtoservice.MainWindow"
+        Title="Товары">
+	<Grid RowDefinitions="Auto,*,Auto">
+		<ListBox Name="productLB"
+				 Grid.Row="1">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid ColumnDefinitions="*,*"
+						  RowDefinitions="*,*,*,Auto,Auto,*">
+						<Border Grid.ColumnSpan="3"
+								Grid.RowSpan="6"
+								Background="White"
+								BorderBrush="Black"
+								BorderThickness="1"/>
+						<Image Source="{Binding Picture}"
+							   Margin="15"
+							   Grid.Column="0"
+							   Grid.Row="3"
+							   Grid.RowSpan="5"/>
+						<TextBlock Text="{Binding ProductName}"
+								   Grid.Column="1"
+								   Grid.Row="0"
+								   Margin="0 15 0 0"
+								   FontSize="20"/>
+						<TextBlock Text="{Binding ProductDescription}"
+								   Grid.Column="1"
+								   Grid.Row="1"
+								   Margin="0 15 0 0"
+								   TextWrapping="Wrap"/>
+						<TextBlock Text="{Binding ProductManufacturerNavigation.ManName}"
+								   Grid.Column="1"
+								   Grid.Row="2"
+								   Margin="0 15 0 0"
+								   FontStyle="Italic"/>
+						<DockPanel Grid.Column="1"
+								   Grid.Row="3"
+								   Margin="0 45 0 0"
+								   Name="costAndDiscount"
+								   IsVisible="True">
+							<TextBlock Text="{Binding ProductCost}"
+									   FontSize="20"/>
+							<TextBlock Text=" руб."
+									   FontSize="20"/>
+							<TextBlock Text="{Binding ProductDiscountNow}"
+									   FontSize="20"
+									   Margin="70 0 0 0"
+									   Foreground="Red"/>
+							<TextBlock Text="%"
+									   FontSize="20"
+									   Foreground="Red"/>
+						</DockPanel>
+						<DockPanel Grid.Column="1"
+								   Grid.Row="4"
+								   IsVisible="False"
+								   Name="newCost">
+							<TextBlock Text="{Binding DiscountCost}"
+									   FontSize="25"
+									   FontWeight="Bold"/>
+							<TextBlock Text=" руб."
+									   FontSize="25"
+									   FontWeight="Bold"/>
+						</DockPanel>
+						<DockPanel Grid.Column="1"
+								   Grid.Row="5"
+								   IsVisible="False"
+								   Name="oldCost">
+							<TextBlock Text="{Binding ProductCost}"
+									   FontSize="25"
+									   FontWeight="Bold"/>
+							<TextBlock Text=" руб."
+									   FontSize="25"
+									   FontWeight="Bold"/>
+						</DockPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</Window>
