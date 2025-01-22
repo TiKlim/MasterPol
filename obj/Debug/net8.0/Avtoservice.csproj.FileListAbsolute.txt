@@ -171,3 +171,4 @@ C:\Users\prdb\source\repos\Avtoservice\bin\Debug\net8.0\runtimes\browser\lib\net
 C:\Users\prdb\source\repos\Avtoservice\obj\Debug\net8.0\Avalonia\Avtoservice.dll
 C:\Users\prdb\source\repos\Avtoservice\obj\Debug\net8.0\Avalonia\Avtoservice.pdb
 C:\Users\prdb\source\repos\Avtoservice\obj\Debug\net8.0\refint\Avalonia\Avtoservice.dll
+C:\Users\prdb\source\repos\Avtoservice\obj\Debug\net8.0\Avtoservice.sourcelink.json

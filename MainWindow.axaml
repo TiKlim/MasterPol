@@ -7,18 +7,62 @@
 		x:CompileBindings="False"
         x:Class="Avtoservice.MainWindow"
         Title="Товары">
-	<Grid RowDefinitions="Auto,*,Auto">
+	<Grid RowDefinitions="Auto,Auto,*,Auto">
+
+		<DockPanel Grid.Row="0"
+				   Margin="10"
+				   HorizontalAlignment="Center">
+			<TextBlock Name="output"/>
+			<TextBlock Text=" из "/>
+			<TextBlock Name="total"/>
+		</DockPanel>
+
+		<DockPanel Grid.Row="1">
+			<ComboBox Name="sortCB"
+					  SelectedIndex="0"
+					  Margin="12 0 0 0">
+				<ComboBoxItem>Сортировка</ComboBoxItem>
+				<ComboBoxItem>По возрастанию</ComboBoxItem>
+				<ComboBoxItem>По убыванию</ComboBoxItem>
+			</ComboBox>
+			<ComboBox Name="fltrCB"
+					  SelectedIndex="0"
+					  Margin="12 0 0 0">
+				<ComboBoxItem>Все диапазоны</ComboBoxItem>
+				<ComboBoxItem>0 - 9,99%</ComboBoxItem>
+				<ComboBoxItem>10 - 14,99%</ComboBoxItem>
+				<ComboBoxItem>15% и более</ComboBoxItem>
+			</ComboBox>
+			<Button Name="add"
+					Margin="15 0 0 0">
+				<TextBlock Text="Добавить товар"/>
+			</Button>
+		</DockPanel>
+		
 		<ListBox Name="productLB"
-				 Grid.Row="1">
+				 Grid.Row="2">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Grid ColumnDefinitions="*,*"
 						  RowDefinitions="*,*,*,Auto,Auto,*">
 						<Border Grid.ColumnSpan="3"
 								Grid.RowSpan="6"
-								Background="White"
+								Background="{Binding Colors}"
 								BorderBrush="Black"
-								BorderThickness="1"/>
+								BorderThickness="1">
+							<Border.ContextFlyout>
+								<Flyout>
+									<StackPanel>
+										<Button Content="Редактировать"
+												Tag="{Binding ProductId}"
+												Click="Edit_Click"/>
+										<Button Content="Удалить"
+												Tag="{Binding ProductId}"
+												Click="Remove_Click"/>
+									</StackPanel>
+								</Flyout>
+							</Border.ContextFlyout>
+						</Border>
 						<Image Source="{Binding Picture}"
 							   Margin="15"
 							   Grid.Column="0"
@@ -42,10 +86,10 @@
 						<DockPanel Grid.Column="1"
 								   Grid.Row="3"
 								   Margin="0 45 0 0"
-								   Name="costAndDiscount"
 								   IsVisible="True">
 							<TextBlock Text="{Binding ProductCost}"
-									   FontSize="20"/>
+									   FontSize="20"
+									   TextDecorations="Strikethrough"/>
 							<TextBlock Text=" руб."
 									   FontSize="20"/>
 							<TextBlock Text="{Binding ProductDiscountNow}"
@@ -58,8 +102,7 @@
 						</DockPanel>
 						<DockPanel Grid.Column="1"
 								   Grid.Row="4"
-								   IsVisible="False"
-								   Name="newCost">
+								   IsVisible="True">
 							<TextBlock Text="{Binding DiscountCost}"
 									   FontSize="25"
 									   FontWeight="Bold"/>
@@ -68,9 +111,8 @@
 									   FontWeight="Bold"/>
 						</DockPanel>
 						<DockPanel Grid.Column="1"
-								   Grid.Row="5"
-								   IsVisible="False"
-								   Name="oldCost">
+								   Grid.Row="4"
+								   IsVisible="False">
 							<TextBlock Text="{Binding ProductCost}"
 									   FontSize="25"
 									   FontWeight="Bold"/>

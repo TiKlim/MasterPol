@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avtoservice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12aec9ab03ad648f67289655c62b091f04831834")]
 [assembly: System.Reflection.AssemblyProductAttribute("Avtoservice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avtoservice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

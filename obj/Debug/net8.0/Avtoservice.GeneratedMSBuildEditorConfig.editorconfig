@@ -30,5 +30,8 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [C:/Users/prdb/source/repos/Avtoservice/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/prdb/source/repos/Avtoservice/EditWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/prdb/source/repos/Avtoservice/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

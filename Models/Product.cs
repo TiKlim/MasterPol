@@ -1,6 +1,9 @@
-﻿using Avalonia.Media.Imaging;
+﻿using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Avtoservice.Models;
 
@@ -42,7 +45,7 @@ public partial class Product
 
     public Bitmap Picture => ProductImage != null ? new Bitmap($@"Assets\\{ProductImage}") : new Bitmap($@"Assets\\picture.png");
 
-    public decimal? Discount => (ProductCost * ProductDiscountNow)/100;
+    public decimal? DiscountCost => ProductCost - (ProductCost * ProductDiscountNow/100);
 
-    public decimal? DiscountCost => ProductCost - Discount;
+    public SolidColorBrush Colors => ProductDiscountNow >= 15 ? new SolidColorBrush(Color.Parse("#7fff00")) : new SolidColorBrush(Color.Parse("White"));
 }
