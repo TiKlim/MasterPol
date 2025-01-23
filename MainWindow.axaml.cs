@@ -8,11 +8,9 @@ namespace Avtoservice
 {
     public partial class MainWindow : Window
     {
-        private Product Product { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            Product = new Product();
             sortCB.SelectionChanged += SortCB_SelectionChanged;
             fltrCB.SelectionChanged += FltrCB_SelectionChanged;
             add.Click += Add_Click;
@@ -44,7 +42,12 @@ namespace Avtoservice
             }
         }
 
-        private void Add_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e){}
+        private void Add_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            EditWindow editWindow = new EditWindow();
+            editWindow.Show();
+            Close();
+        }
 
         private void FltrCB_SelectionChanged(object? sender, SelectionChangedEventArgs e) => SetData();
 

@@ -8,80 +8,158 @@
         x:Class="Avtoservice.EditWindow"
         Title="Информация о товаре">
 	<Grid ColumnDefinitions="*,*,*"
-		  RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,Auto"
+		  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*,Auto"
 		  Name="gridEdit">
 
 		<Button Grid.Column="0"
 				Grid.Row="0"
-				Name="back">
-			<TextBlock Text="Назад"
+				Name="back"
+				Margin="10">
+			<TextBlock Text="←"
 					   HorizontalAlignment="Center"/>
 		</Button>
 		
+		<TextBlock Grid.Column="0"
+				   Grid.Row="1"
+				   Text="Артикул:"/>
+		
 		<TextBox Watermark="Артикул"
 				 Name="articule"
+				 Text="{Binding ProductArticule}"
 				 Grid.Column="0"
-				 Grid.Row="1"/>
+				 Grid.Row="2"/>
+
+		<TextBlock Grid.Column="0"
+				   Grid.Row="3"
+				   Text="Название:"/>
 
 		<TextBox Watermark="Название"
 				 Name="name"
+				 Text="{Binding ProductName}"
 				 Grid.Column="0"
-				 Grid.Row="2"/>
+				 Grid.Row="4"/>
+
+		<TextBlock Grid.Column="0"
+				   Grid.Row="5"
+				   Text="Описание:"/>
 
 		<TextBox Watermark="Описание"
 				 Name="description"
+				 Text="{Binding ProductDescription}"
 				 Grid.Column="0"
-				 Grid.Row="3"
+				 Grid.Row="6"
 				 TextWrapping="Wrap"/>
+
+		<TextBlock Grid.Column="0"
+				   Grid.Row="7"
+				   Text="Изображение:"/>
 		
 		<Image Source="{Binding Picture}"
 			   Grid.Column="0"
-			   Grid.Row="4"/>
+			   Grid.Row="9"/>
+
+		<TextBlock Grid.Column="1"
+				   Grid.Row="1"
+				   Text="Цена:"
+				   Margin="5 0 0 0"/>
 
 		<TextBox Watermark="Цена"
 				 Name="cost"
+				 Text="{Binding DiscountCost}"
 				 Grid.Column="1"
-				 Grid.Row="1"/>
+				 Grid.Row="2"
+				 Margin="5 0 0 0"/>
+
+		<TextBlock Grid.Column="1"
+				   Grid.Row="3"
+				   Text="Максимально возможная скидка:"
+				   Margin="5 0 0 0"/>
 
 		<TextBox Watermark="Максимально возможная скидка"
 				 Name="maxDiscount"
+				 Text="{Binding ProductMaxDiscount}"
 				 Grid.Column="1"
-				 Grid.Row="2"/>
+				 Grid.Row="4"
+				 Margin="5 0 0 0"/>
+
+		<TextBlock Grid.Column="1"
+				   Grid.Row="5"
+				   Text="Скидка:"
+				   Margin="5 0 0 0"/>
 
 		<TextBox Watermark="Скидка"
 				 Name="discount"
+				 Text="{Binding ProductDiscountNow}"
 				 Grid.Column="1"
-				 Grid.Row="3"/>
+				 Grid.Row="6"
+				 Margin="5 0 0 0"/>
+
+		<TextBlock Grid.Column="1"
+				   Grid.Row="7"
+				   Text="Количество на складе:"
+				   Margin="5 0 0 0"/>
 
 		<TextBox Watermark="Количество на складе"
 				 Name="count"
+				 Text="{Binding ProductCount}"
 				 Grid.Column="1"
-				 Grid.Row="4"/>
+				 Grid.Row="8"
+				 Margin="5 0 0 0"/>
+
+		<TextBlock Grid.Column="2"
+				   Grid.Row="1"
+				   Text="Производитель:"
+				   Margin="5 0 0 0"/>
 
 		<ComboBox Grid.Column="2"
-				  Grid.Row="1">
-			<ComboBoxItem></ComboBoxItem>
+				  Grid.Row="2"
+				  Name="manufacturer"
+				  Margin="5 0 0 0">
 		</ComboBox>
 
-		<ComboBox Grid.Column="2"
-				  Grid.Row="2">
-			<ComboBoxItem></ComboBoxItem>
-		</ComboBox>
+		<TextBlock Grid.Column="2"
+				   Grid.Row="3"
+				   Text="Поставщик:"
+				   Margin="5 0 0 0"/>
 
 		<ComboBox Grid.Column="2"
-				  Grid.Row="3">
-			<ComboBoxItem></ComboBoxItem>
+				  Grid.Row="4"
+				  Name="provider"
+				  Margin="5 0 0 0">
 		</ComboBox>
 
+		<TextBlock Grid.Column="2"
+				   Grid.Row="5"
+				   Text="Категория товара:"
+				   Margin="5 0 0 0"/>
+
 		<ComboBox Grid.Column="2"
-				  Grid.Row="4">
-			<ComboBoxItem></ComboBoxItem>
+				  Grid.Row="6"
+				  Name="category"
+				  Margin="5 0 0 0">
+		</ComboBox>
+
+		<TextBlock Grid.Column="2"
+				   Grid.Row="7"
+				   Text="Единица измерения:"
+				   Margin="5 0 0 0"/>
+
+		<ComboBox Grid.Column="2"
+				  Grid.Row="8"
+				  Name="unit"
+				  Margin="5 0 0 0">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding UnitName}"/>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
 		</ComboBox>
 
 		<Button Grid.Column="2"
-				Grid.Row="6"
+				Grid.Row="11"
 				Name="save"
-				HorizontalAlignment="Right">
+				HorizontalAlignment="Right"
+				Margin="10">
 			<TextBlock Text="Сохранить"
 					   HorizontalAlignment="Center"/>
 		</Button>
