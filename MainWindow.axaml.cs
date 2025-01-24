@@ -13,9 +13,12 @@ namespace Avtoservice
             InitializeComponent();
             sortCB.SelectionChanged += SortCB_SelectionChanged;
             fltrCB.SelectionChanged += FltrCB_SelectionChanged;
+            search.TextChanged += Search_TextChanged;
             add.Click += Add_Click;
             SetData(); 
         }
+
+        private void Search_TextChanged(object? sender, TextChangedEventArgs e) => SetData();
 
         private void Edit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
@@ -37,9 +40,10 @@ namespace Avtoservice
 
             if (product != null)
             {
-                DataSource.Helper.DataBase.Remove(product);
-                DataSource.Helper.DataBase.Update(product);
+                DataSource.Helper.DataBase.Products.Remove(product);
+                DataSource.Helper.DataBase.SaveChanges();
             }
+            SetData();
         }
 
         private void Add_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -56,6 +60,12 @@ namespace Avtoservice
         private void SetData()
         {
             var sortList = DataSource.Helper.DataBase.Products.Include(x => x.ProductManufacturerNavigation).ToList();
+
+            string searchSearch = search.Text?.ToLower() ?? "";
+            if (searchSearch.Length > 0)
+            {
+                sortList = sortList.Where(x => x.ProductName.ToLower().Contains(searchSearch) && x.ProductManufacturerNavigation.ManName.ToLower().Contains(searchSearch)).ToList();
+            }
 
             if (sortCB.SelectedIndex == 1)
             {

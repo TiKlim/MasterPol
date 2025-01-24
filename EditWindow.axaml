@@ -56,7 +56,16 @@
 		
 		<Image Source="{Binding Picture}"
 			   Grid.Column="0"
-			   Grid.Row="9"/>
+			   Grid.Row="9"
+			   Name="imageImage"/>
+
+		<DockPanel Grid.Column="0"
+				   Grid.Row="8">
+			<Button Content="Добавить"
+					Name="addPhoto"/>
+			<Button Content="Удалить"
+					Name="deletePhoto"/>
+		</DockPanel>
 
 		<TextBlock Grid.Column="1"
 				   Grid.Row="1"
@@ -115,6 +124,11 @@
 				  Grid.Row="2"
 				  Name="manufacturer"
 				  Margin="5 0 0 0">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding ManName}"/>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
 		</ComboBox>
 
 		<TextBlock Grid.Column="2"
@@ -126,6 +140,11 @@
 				  Grid.Row="4"
 				  Name="provider"
 				  Margin="5 0 0 0">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding ProviderName}"/>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
 		</ComboBox>
 
 		<TextBlock Grid.Column="2"
@@ -137,6 +156,11 @@
 				  Grid.Row="6"
 				  Name="category"
 				  Margin="5 0 0 0">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding CategoryName}"/>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
 		</ComboBox>
 
 		<TextBlock Grid.Column="2"
@@ -154,6 +178,12 @@
 				</DataTemplate>
 			</ComboBox.ItemTemplate>
 		</ComboBox>
+		
+		<TextBlock Grid.Column="1"
+				   Grid.Row="9"
+				   Foreground="Red"
+				   Name="warning"
+				   Margin="5"/>
 
 		<Button Grid.Column="2"
 				Grid.Row="11"

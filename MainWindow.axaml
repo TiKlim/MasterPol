@@ -18,6 +18,10 @@
 		</DockPanel>
 
 		<DockPanel Grid.Row="1">
+			<TextBox Watermark="Поиск"
+					 Name="search"
+					 Margin="12 0 0 0"
+					 Width="334"/>
 			<ComboBox Name="sortCB"
 					  SelectedIndex="0"
 					  Margin="12 0 0 0">
